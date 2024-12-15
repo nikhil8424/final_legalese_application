@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Your Legal Assistant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .app-container {
+            width: 90%;
+            max-width: 1000px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .app-header {
+            background-color: #A86254;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .functionality-section {
+            width: 80%;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .functionality-section h2 {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .functionality-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .functionality-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .functionality-item h3 {
+            margin-top: 0;
+            color: #444;
+        }
+
+        .get-started-section {
+            width: 80%;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #A86254;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #c7b198;
+        }
+
+        .app-footer {
+            background-color: #A86254;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .footer-links li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Styles for the second section, adjusted to be more specific*/
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F9F0EE;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 20px;
+            background-color: #F9F0EE;
+            border: 1px solid #ccc; /* Add border to the entire container */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+        }
+
+
+        .left-pane {
+            flex: 1;
+            padding: 20px;
+            background-color: #ffe9e3;
+            border-right: 1px solid #ccc;
+            box-sizing: border-box;
+            overflow-y: auto; /* Enables scrolling for long content */
+        }
+
+        .left-pane h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .left-pane p {
+            font-size: 1em;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .right-pane {
+            flex: 2;
+            padding: 20px;
+            background-color: #ffe9e3;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .right-pane h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center; /* Center the title */
+            color: #333;
+        }
+
+        .right-pane label,
+        .right-pane select {
+            margin-bottom: 10px;
+            display: block; /* Display labels as blocks */
+            width: auto; /* Make labels fit their text content */
+        }
+
+        .right-pane input[type="file"],
+        .right-pane textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            width: 100%; /* Make form elements use full width */
+            max-width: 100%;
+        }
+
+        .right-pane textarea.text-area {
+            width: calc(100% - 20px);
+             max-width: calc(100% - 20px);
+        }
+
+        .right-pane button {
+            background-color: #A86254;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+        .right-pane button:hover{
+            background-color: #c7b198;
+            transition: background-color 0.3s ease;
+        }
+
+        .right-pane .buttons {
+            display: flex;
+            justify-content: space-evenly; /* Add space evenly between buttons */
+            margin-bottom: 20px;
+        }
+
+        .right-pane .result-box {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .right-pane .result-box h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .right-pane .result-box p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .flashes {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .flashes li {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+
+        .flashes li.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+             <h1>LegalEase - Your Legal Assistant</h1>
+        </header>
+        <div class="content-container">
+                <section class="functionality-section">
+                     <h2>Our Functionalities</h2>
+                   <ul class="functionality-list">
+                        
+                            <li class="functionality-item">
+                                 <h3>Identify</h3>
+                                 <p>Identifies the type and key components of a legal document.</p>
+                             </li>
+                        
+                             <li class="functionality-item">
+                                 <h3>Key Points</h3>
+                                 <p>Extracts crucial information such as names, dates, and organizations.</p>
+                             </li>
+                        
+                             <li class="functionality-item">
+                                 <h3>Plain Language</h3>
+                                 <p>Simplifies complex legal jargon into plain language.</p>
+                            </li>
+                        
+                             <li class="functionality-item">
+                                 <h3>Summary</h3>
+                                 <p>Provides a concise summary of the document.</p>
+                             </li>
+                        
+                   </ul>
+                 </section>
+                <section class="get-started-section">
+                    <h2>Ready to Streamline Your Legal Work?</h2>
+                     <a href="#" class="button">Get Started</a>
+               </section>
+        </div>
+        
+         <footer class="app-footer">
+            <ul class="footer-links">
+                
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms</a></li>
+                    
+            </ul>
+            <p>© 2024 LegalEase Inc.</p>
+        </footer>
+    </div>
+    <div class="container">
+        <div class="left-pane">
+            <h1>Hey there!</h1>
+            <p>We know it's not perfect yet and we sincerely apologize for any inconvenience caused by the current performance.</p>
+            <p>But here’s the exciting part—this is just the beginning!</p>
+            <p>In future versions, we’re planning to integrate cutting-edge AI and Machine Learning technologies to enhance accuracy, speed, and intelligence.</p>
+            <p>A revamped, intuitive user interface is on the way to ensure a seamless user experience.</p>
+            <p>We’ll also add more powerful features and improve the current functionalities based on your valuable feedback.</p>
+            <p>How does it work now? Simple: Upload -> Process -> Select Function -> Get Results!</p>
+            <p>Thank you for your patience and support as we work toward making LegalEase your ultimate legal assistant.</p>
+             <p>Let’s take the first step together. Your hassle-free legal journey starts here!</p>
+        </div>
+        <div class="right-pane">
+            <h1>Legalize Application</h1>
+
+            <form id="upload-form" enctype="multipart/form-data">
+                <label for="language">Select Language:</label>
+                <select name="language" id="language">
+                    
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        
+                    
+                </select>
+                <br>
+                <label for="file">Upload your File here (png, jpg, pdf):</label>
+                <input type="file" name="file" id="file">
+                <br>
+                <button type="button" onclick="uploadFile()">Upload</button>
+            </form>
+
+            <div class="buttons">
+                
+                   <button type="button" onclick="processAction('Identify')">Identify</button>
+                    <button type="button" onclick="processAction('Key Points')">Key Points</button>
+                    <button type="button" onclick="processAction('Plain Language')">Plain Language</button>
+                    <button type="button" onclick="processAction('Summary')">Summary</button>
+                
+            </div>
+            
+
+            
+                  <ul class="flashes">
+                  
+                  </ul>
+                
+
+            <textarea id="extracted_text" class="text-area" rows="15" readonly></textarea>
+           
+            <div id="results-container">
+              
+            </div>
+
+        </div>
+    </div>
+        <script>
+                function uploadFile() {
+                    const form = document.getElementById('upload-form');
+                    const formData = new FormData(form);
+                    
+                    fetch('/upload', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                       if(data.error){
+                            let errorDiv = document.getElementById('results-container')
+                            errorDiv.innerHTML = `<div class="result-box"><h3>Error</h3><p>${data.error}</p></div>`;
+
+                       }else{
+                           document.getElementById('extracted_text').value = data.translated_text;
+                       }
+                    })
+                     .catch(error => {
+                        console.error('Error during upload:', error);
+                        let errorDiv = document.getElementById('results-container')
+                        errorDiv.innerHTML = `<div class="result-box"><h3>Error</h3><p>Error during upload: ${error}</p></div>`;
+                    });
+                }
+
+                function processAction(action) {
+                    const extractedText = document.getElementById('extracted_text').value;
+                    
+                    fetch('/process', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                       body: 'action=' + action + '&translated_text=' + encodeURIComponent(extractedText)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                         let resultsDiv = document.getElementById('results-container');
+                        resultsDiv.innerHTML = '';
+
+                        if (data.action === 'Identify') {
+                            resultsDiv.innerHTML += `
+                                <div class="result-box">
+                                    <h3>Document Type</h3>
+                                    <p>${data.document_type}</p>
+                                </div>
+                                <div class="result-box">
+                                    <h3>Sections Found</h3>
+                                    <p>${data.sections}</p>
+                                </div>
+                                <div class="result-box">
+                                    <h3>Keyword Counts</h3>
+                                    <p>${data.keyword_counts}</p>
+                                </div>
+                            `;
+                         } else if (data.action === 'Key Points') {
+                                resultsDiv.innerHTML += `
+                                    <div class="result-box">
+                                        <h3>Dates Extracted</h3>
+                                        <p>${data.dates}</p>
+                                    </div>
+                                    <div class="result-box">
+                                        <h3>Organizations Extracted</h3>
+                                        <p>${data.organizations}</p>
+                                    </div>
+                                    <div class="result-box">
+                                        <h3>Cities Extracted</h3>
+                                        <p>${data.cities}</p>
+                                    </div>
+                                    <div class="result-box">
+                                        <h3>Names Extracted</h3>
+                                        <p>${data.names}</p>
+                                    </div>
+                                `;
+                            } else if(data.action === 'Summary'){
+                                  resultsDiv.innerHTML += `
+                                    <div class="result-box">
+                                        <h3>Summary</h3>
+                                        <p>${data.summary}</p>
+                                    </div>
+                                `;
+                            } else if (data.action === 'Plain Language'){
+                                 resultsDiv.innerHTML += `
+                                    <div class="result-box">
+                                        <h3>Simplified Text</h3>
+                                        <p>${data.simplified_text}</p>
+                                    </div>
+                                `;
+                            }
+                    })
+                      .catch(error => {
+                        console.error('Error during processing:', error);
+                         let errorDiv = document.getElementById('results-container')
+                        errorDiv.innerHTML = `<div class="result-box"><h3>Error</h3><p>Error during processing: ${error}</p></div>`;
+                    });
+                }
+        </script>
+</body>
+</html>
